@@ -48,7 +48,7 @@ if (isset($keySecret) && !empty($keySecret)) {
 !is_array($wwwRoot) && $wwwRoot = [$wwwRoot];
 foreach ($wwwRoot as $k => $vo) {
     // php
-    $shell  = sprintf("cd %s && git pull 2>&1", $vo);
+    $shell  = sprintf("cd %s && git pull 2>&1 && composer install", $vo);
     $output = shell_exec($shell);
     $log    = sprintf("[%s] %s \n", date('Y-m-d H:i:s', time()) . ' - ' . $vo, $output);
     echo $log;
